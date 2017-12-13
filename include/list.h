@@ -8,13 +8,22 @@ typedef int DataType;
 
 struct Node
 {
-  DataType data;
-  Node* next;
-  // здесь могут быть конструкторы, методы, деструктор Node
+	DataType data;
+	Node* next;
+
+	Node() {};
+	Node(DataType a, Node* el)
+	{
+		data = a; next = el;
+	};
+	~Node() {};
+	// здесь могут быть конструкторы, методы, деструктор Node
 };
 
 class List
 {
+	Node* head;
+
   // любые поля
 public:
   List() {};
