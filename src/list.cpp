@@ -42,10 +42,23 @@ List::~List()
 
 List& List::operator=(const List& list2)
 {
-	if (list2.head != NULL)
-		head = list2.head;
-	else throw "error";
-	return*this;
+	if (this != &list2)
+	{
+		Clean();
+		if (list2.head != NULL)
+		{
+			head = new Node(list2.head->data);
+			Node *temp = head;
+			Node*temp2 = list2.head->next;
+			while (temp2 != NULL)
+			{
+				temp->next = new Node(temp2->data);
+				temp = temp->next;
+				temp2 = temp2->next;
+			}
+		}
+	}
+	return *this;
 };
 
 
