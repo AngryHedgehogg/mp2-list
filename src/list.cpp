@@ -23,24 +23,9 @@ Node::Node(const Node& node2)
 }
 
 
-List::~List()
-{
-	Node *tmp = head;
-	Node *tmp2 = head;
-	if (tmp != NULL)
-	{
-		while (tmp->next != NULL)
-		{
-			tmp2 = tmp->next;
-			delete tmp;
-			tmp = tmp2;
-		}
-		delete tmp;
-	}
-}
 
 
-List& List::operator=(const List& list2)
+List& List::operator=(const List& list2)//// newkbjygk
 {
 	if (this != &list2)
 	{
@@ -60,6 +45,25 @@ List& List::operator=(const List& list2)
 	}
 	return *this;
 };
+
+
+
+
+List::~List()
+{
+	Node *tmp = head;
+	Node *tmp2 = head;
+	if (tmp != NULL)
+	{
+		while (tmp->next != NULL)
+		{
+			tmp2 = tmp->next;
+			delete tmp;
+			tmp = tmp2;
+		}
+		delete tmp;
+	}
+}
 
 
 
