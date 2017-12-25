@@ -12,11 +12,15 @@ struct Node
   Node* next;
   // здесь могут быть конструкторы, методы, деструктор Node
 
-  Node(DataType d = 0, Node* n = NULL)
-  {
-	  data = d;
-	  next = n;
+  ~Node() {};
+
+  Node(DataType d = 0, Node* n = NULL) 
+  { 
+	  data = d; 
+      next = n; 
   }
+
+
   Node(const Node& node2);
 
   bool operator==(const Node& node2) const;
@@ -42,7 +46,7 @@ public:
   Node* GetHead() // получить указатель на первое звено списка
   {
 	  return head;
-  }
+  };
 
   void Inverse(); // инвертировать список, т.е. звенья должны идти в обратном порядке
   List Merge(Node* node, const List& list2); // создать список3, добавив список2 в текущий список после указателя node  
@@ -61,5 +65,6 @@ public:
 
   bool operator==(const List& list2) const; // списки равны, если элементы в них идут в одинаковом порядке
 };
+
 
 #endif
